@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 100%;
+      margin: 0;
+      padding: 10px; /* Added padding to separate from edges */
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 24px;
+      color: navy; /* Set title color to navy blue */
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    select {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 12px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    #result {
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    /* Media Queries */
+    @media (min-width: 768px) {
+      /* For screens larger than or equal to 768px */
+      body {
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>arta o-ring</h1>
+  <label for="quantity">Quantity of O-Rings:</label>
+  <input type="number" id="quantity" required>
+
+  <label for="size">O-Ring Size (mm):</label>
+  <input type="number" id="size" required>
+
+  <label for="thickness">O-Ring Thickness (mm):</label>
+  <input type="number" id="thickness" required>
+
+  <label for="material">O-Ring Material:</label>
+  <select id="material" required>
+    <option value="nbr">NBR</option>
+    <option value="silicon">Silicon</option>
+    <option value="viton">Viton</option>
+  </select>
+
+  <button onclick="calculatePrice()">Calculate Price</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculatePrice() {
+      const quantity = parseInt(document.getElementById("quantity").value);
+      const size = parseInt(document.getElementById("size").value);
+      const thickness = parseFloat(document.getElementById("thickness").value);
+      const material = document.getElementById("material").value;
+
+      let price;
+
+      if (size >= 1 && size <= 9.5) {
+        if (thickness >= 1 && thickness <= 3) {
+          if (material === "nbr") price = size * 2074;
+          else if (material === "silicon") price = size * 6776;
+          else if (material === "viton") price = size * 24006;
+        }
+      } else if (size >= 10 && size <= 14.5) {
+        if (thickness >= 3 && thickness <= 3.5) {
+          if (material === "nbr") price = size * 2964;
+          else if (material === "silicon") price = size * 9666;
+          else if (material === "viton") price = size * 40221;
+        }
+      } else if (size >= 15 && size <= 19.5) {
+        if (thickness >= 1 && thickness <= 3) {
+          if (material === "nbr") price = size * 2869;
+          else if (material === "silicon") price = size * 9354;
+          else if (material === "viton") price = size * 35193;
+        }
+      } else if (size >= 20 && size <= 40) {
+        if (thickness >= 2 && thickness <= 3) {
+          if (material === "nbr") price = size * 200;
+          else if (material === "silicon") price = size * 661;
+          else if (material === "viton") price = size * 2463;
+        } else if (thickness > 3 && thickness <= 3.5) {
+          if (material === "nbr") price = size * 251;
+          else if (material === "silicon") price = size * 813;
+          else if (material === "viton") price = size * 2890;
+        }
+      } else if (size >= 41 && size <= 400) {
+        if (thickness >= 2 && thickness <= 3) {
+          if (material === "nbr") price = size * 239;
+          else if (material === "silicon") price = size * 782;
+          else if (material === "viton") price = size * 2665;
+        } else if (thickness > 3 && thickness <= 3.5) {
+          if (material === "nbr") price = size * 251;
+          else if (material === "silicon") price = size * 813;
+          else if (material === "viton") price = size * 2890;
+        }
+      }
+
+      if (size >= 1) {
+        if (thickness === 4) {
+          if (material === "nbr") price = size * 288;
+          else if (material === "silicon") price = size * 938;
+          else if (material === "viton") price = size * 3645;
+        } else if (thickness === 4.5) {
+          if (material === "nbr") price = size * 322;
+          else if (material === "silicon") price = size * 1043;
+          else if (material === "viton") price = size * 4023;
+        } else if (thickness === 5) {
+          if (material === "nbr") price = size * 407;
+          else if (material === "silicon") price = size * 1333;
+          else if (material === "viton") price = size * 4902;
+        } else if (thickness === 5.5) {
+          if (material === "nbr") price = size * 461;
+          else if (material === "silicon") price = size * 1508;
+          else if (material === "viton") price = size * 5280;
+        } else if (thickness === 6) {
+          if (material === "nbr") price = size * 544;
+          else if (material === "silicon") price = size * 1771;
+          else if (material === "viton") price = size * 6410;
+        } else if (thickness === 7) {
+          if (material === "nbr") price = size * 718;
+          else if (material === "silicon") price = size * 2338;
+          else if (material === "viton") price = size * 7793;
+        } else if (thickness === 8) {
+          if (material === "nbr") price = size * 989;
+          else if (material === "silicon") price = size * 3221;
+          else if (material === "viton") price = size * 10307;
+        } else if (thickness === 9) {
+          if (material === "nbr") price = size * 1181;
+          else if (material === "silicon") price = size * 3846;
+          else if (material === "viton") price = size * 12192;
+        } else if (thickness === 10) {
+          if (material === "nbr") price = size * 1467;
+          else if (material === "silicon") price = size * 4782;
+          else if (material === "viton") price = size * 14831;
+        }
+      }
+
+      //        20          ?             
+      price = price + (price * 0.20);
+
+      //      ?      ??             ?䐝  
+      const totalPrice = price * quantity;
+
+      document.getElementById("result").innerHTML = `Total Price: ${totalPrice.toFixed(0)} Rials for ${quantity} O-Rings`;
+    }
+  </script>
+</body>
+</html>
